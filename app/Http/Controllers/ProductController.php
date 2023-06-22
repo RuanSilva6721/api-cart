@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use App\Services\ProductService;
+use Illuminate\Http\Request;
+use PHPUnit\Logging\Exception;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ProductController extends Controller
 {
@@ -45,19 +50,6 @@ class ProductController extends Controller
             ], 500);
         }
     }
-    public function getProductOfBrand($id)
-    {
-        try {
-            return $this->productService->getProductOfBrand($id);
-        } catch (Exception $e) {
-            $this->logError($e);
-            return new JsonResponse([
-                'error' => true,
-                'message' => 'Ocorreu um erro ao obter o produtos.',
-                'details' => $e->getMessage()
-            ], 500);
-        }
-    }
     public function createProduct(Request $request)
     {
         try {
@@ -73,7 +65,7 @@ class ProductController extends Controller
                     'message' => 'Não foi possível criar o produto.'
                 ], 500);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->logError($e);
             return new JsonResponse([
                 'error' => true,
