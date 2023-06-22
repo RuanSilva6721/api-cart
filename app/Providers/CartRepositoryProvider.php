@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Repositories\CartRepository;
-use App\Repositories\CartRepositoryEloquent;
+use App\Repositories\Eloquent\CartRepositoryEloquent;
 use Illuminate\Support\ServiceProvider;
 
 class CartRepositoryProvider extends ServiceProvider

@@ -23,6 +23,8 @@ class CartController extends Controller
     }
     public function createCart(Request $request)
     {
+        $data = $request->all();
+        dd($data);
         try {
             $result = $this->cartService->createCart($request);
             if ($result) {

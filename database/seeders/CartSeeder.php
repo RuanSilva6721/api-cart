@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cart;
 use App\Models\CartItem;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,6 +14,6 @@ class CartSeeder extends Seeder
      */
     public function run(): void
     {
-        CartItem::factory(1)->create();
+        Cart::factory(1)->create();
     }
 }

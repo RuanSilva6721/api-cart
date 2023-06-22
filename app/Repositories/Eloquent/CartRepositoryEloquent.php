@@ -1,11 +1,11 @@
 <?php
-namespace App\Repositories;
+namespace App\Repositories\Eloquent;
 
 use App\Models\Cart;
 use Illuminate\Support\Facades\DB;
 
 
-class CartRepositoryEloquent implements CartRepository
+class CartRepositoryEloquent implements \App\Repositories\CartRepository
 { 
     public function createCart($user)
     {

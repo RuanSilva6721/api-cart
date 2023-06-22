@@ -24,7 +24,7 @@ class CartItemFactory extends Factory
         $cartLast =Cart::orderBy('id', 'desc')->first();
 
         return [
-            'amount' => $this->faker->numberBetween(1, 100),
+            'amount' => $this->faker->numberBetween(1, 10),
             'cart_id' => $this->faker->numberBetween($cartFirst->id, $cartLast->id),
             'product_id' => $this->faker->numberBetween($productFirst->id, $productLast->id)
             

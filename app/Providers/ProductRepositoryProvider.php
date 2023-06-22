@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Repositories\ProductRepository;
-use App\Repositories\ProductRepositoryEloquent;
+use App\Repositories\Eloquent\ProductRepositoryEloquent;
 use Illuminate\Support\ServiceProvider;
 
 class ProductRepositoryProvider extends ServiceProvider

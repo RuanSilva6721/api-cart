@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BookStoreController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -19,8 +19,10 @@ use Illuminate\Support\Facades\Route;
 */
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-Route::middleware('auth:sanctum')->get('/BookStore', [BookStoreController::class, 'getBookStoreAll']);
-Route::middleware('auth:sanctum')->get('/BookStore/{id}', [BookStoreController::class, 'getBookStoreOne']);
-Route::middleware('auth:sanctum')->post('/BookStoreCreate', [BookStoreController::class, 'createBookStore']);
-Route::middleware('auth:sanctum')->put('/BookStore/{id}', [BookStoreController::class, 'editBookStore']);
-Route::middleware('auth:sanctum')->delete('/BookStore/{id}', [BookStoreController::class, 'deleteBookStore']);
+// Route::middleware('auth:sanctum')->get('/cart', [CartController::class, 'getCartAll']);
+// Route::middleware('auth:sanctum')->get('/cart/{id}', [CartController::class, 'getCartOne']);
+
+// Route::middleware('auth:sanctum')->put('/cart/{id}', [CartController::class, 'editCart']);
+// Route::middleware('auth:sanctum')->delete('/cart/{id}', [CartController::class, 'deleteCart']);
+
+Route::post('/cart-create', [CartController::class, 'createCart']);
