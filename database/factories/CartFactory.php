@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,11 @@ class CartFactory extends Factory
      */
     public function definition(): array
     {
+        $userFirst =User::first();
+        $userLast =User::orderBy('id', 'desc')->first();
+
         return [
-            //
+            'user_id' => $this->faker->numberBetween($userFirst->id, $userLast->id)
         ];
     }
 }
